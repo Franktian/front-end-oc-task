@@ -12,7 +12,7 @@ class Days extends Component {
     }
 
     renderDays() {
-        let days = this.getCalendarDays(1, 2018);
+        const days = this.getCalendarDays(1, 2018);
 
         return days.map((day, key) => {
             const activeDay = day.isActive ? " active" : "";
