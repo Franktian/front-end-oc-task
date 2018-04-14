@@ -12,7 +12,8 @@ class Days extends Component {
     }
 
     renderDays() {
-        const days = this.getCalendarDays(1, 2018);
+        const currentDate = this.props.currentDate;
+        const days = this.getCalendarDays(currentDate.getMonth(), currentDate.getFullYear());
 
         return days.map((day, key) => {
             const activeDay = day.isActive ? " active" : "";
