@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
 
+import './Days.css';
+
 class Days extends Component {
     render() {
         return (
-            <div>
-                <div>
-                { this.getCalendarDays(7, 2018) }
-                </div>
+            <div className="days-container">
+                { this.renderDays() }
             </div>
         );
+    }
+
+    renderDays() {
+        let days = this.getCalendarDays(2, 2018);
+
+        return days.map((day, key) => {
+            return (
+                <div
+                    key={key}
+                    className="days-item">
+                    { day.getDate() }
+                </div>
+            );
+        });
     }
 
     getSundayOfCalendarMonth(month, year) {
@@ -29,7 +43,7 @@ class Days extends Component {
             date.setDate(date.getDate() + 1);
         }
 
-        return "Frank";
+        return days;
     }
 }
 

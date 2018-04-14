@@ -1,0 +1,14 @@
+.days-container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #eeeeee;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.days-item {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 14.2857143%;
+    color: #cbcbcb;
+}
