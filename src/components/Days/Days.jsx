@@ -12,13 +12,15 @@ class Days extends Component {
     }
 
     renderDays() {
-        let days = this.getCalendarDays(2, 2018);
+        let days = this.getCalendarDays(1, 2018);
 
         return days.map((day, key) => {
+            const activeDay = day.isActive ? " active" : "";
+
             return (
                 <div
                     key={key}
-                    className="days-item">
+                    className={"days-item" + activeDay}>
                     { day.getDate() }
                 </div>
             );
@@ -39,6 +41,7 @@ class Days extends Component {
 
         for (let i = 0; i < 42; i++) {
             let copy = new Date(date.getTime());
+            copy.isActive = copy.getMonth() === month;
             days.push(copy);
             date.setDate(date.getDate() + 1);
         }

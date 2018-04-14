@@ -12,3 +12,7 @@
     width: 14.2857143%;
     color: #cbcbcb;
 }
+
+.days-item.active {
+    color: #6e7272;
+}
