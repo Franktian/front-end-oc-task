@@ -5,14 +5,10 @@ class Days extends Component {
         return (
             <div>
                 <div>
-                { this.getSundayOfCalendarMonth(8, 2018) }
+                { this.getCalendarDays(7, 2018) }
                 </div>
             </div>
         );
-    }
-
-    getFirstDayOfMonth(month, year) {
-        return new Date(year, month, 1);
     }
 
     getSundayOfCalendarMonth(month, year) {
@@ -20,7 +16,20 @@ class Days extends Component {
 
         let day = d.getDay(),
             diff = d.getDate() - day;
-        return new Date(d.setDate(diff)).toString();
+        return new Date(d.setDate(diff));
+    }
+
+    getCalendarDays(month, year) {
+        let days = [];
+        let date = this.getSundayOfCalendarMonth(month, year);
+
+        for (let i = 0; i < 42; i++) {
+            let copy = new Date(date.getTime());
+            days.push(copy);
+            date.setDate(date.getDate() + 1);
+        }
+
+        return "Frank";
     }
 }
 
