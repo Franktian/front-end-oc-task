@@ -16,7 +16,7 @@ class App extends Component {
           <h1 className="App-title">Calendar App</h1>
         </header>
 
-        <div class="App-container">
+        <div className="App-container">
           <Month />
           <Week />
           <Days />

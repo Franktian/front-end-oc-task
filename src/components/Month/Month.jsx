@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 
 import './Month.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 class Month extends Component {
     render() {
         return (
-            <div class="container">
-                <div class="arrow left center-align">a</div>
-                <div class="center center-align">
+            <div className="container">
+                <div className="arrow left center-align"><i className="fa fa-angle-left"></i></div>
+                <div className="center center-align">
                     <div>February</div>
                     <div>2018</div>
                 </div>
-                <div class="arrow right center-align">b</div>
+                <div className="arrow right center-align"><i className="fa fa-angle-right"></i></div>
             </div>
         );
     }

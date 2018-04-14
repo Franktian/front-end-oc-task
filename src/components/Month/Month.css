@@ -10,9 +10,13 @@
     flex: 1;
     justify-content: center;
     align-items: center;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .center {
+    display: flex;
+    flex-direction: column;
     flex: 7;
 }
 
