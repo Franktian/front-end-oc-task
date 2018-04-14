@@ -1,0 +1,9 @@
+.week-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.week-item {
+    flex: 1;
+    padding: 10px;
+}
