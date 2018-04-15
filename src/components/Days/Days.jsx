@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './Days.css';
+import Day from '../Day'
 
 class Days extends Component {
     render() {
@@ -16,15 +17,8 @@ class Days extends Component {
         const days = this.getCalendarDays(currentDate.getMonth(), currentDate.getFullYear());
 
         return days.map((day, key) => {
-            const activeDay = day.isActive ? " active" : "";
-            const isToday = day.isToday ? " today" : "";
-
             return (
-                <div
-                    key={key}
-                    className={"days-item" + activeDay + isToday}>
-                    { day.getDate() }
-                </div>
+                <Day key={key} data={day}/>
             );
         });
     }
