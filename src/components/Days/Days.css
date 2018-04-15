@@ -41,3 +41,15 @@
 .popover .arrow::after {
     border-bottom-color: #555454 !important;
 }
+
+.input-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.btn-container {
+    justify-content: center;
+    display: flex;
+}
