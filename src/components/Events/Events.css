@@ -2,3 +2,9 @@
     text-align: left;
     margin: 20px;
 }
+
+.events-container div:nth-child(even) {
+    background-color: #fbfafa;
+    border-top: 2px solid #f5f4f4;
+    border-bottom: 2px solid #f5f4f2;
+}
