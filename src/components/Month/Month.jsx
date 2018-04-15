@@ -8,7 +8,7 @@ class Month extends Component {
         const monthNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"];
         return (
-            <div className="container">
+            <div className="month-container">
                 <div className="arrow left center-align" onClick={() => {
                     this.props.setPreviousMonth()
                 }}><i className="fa fa-angle-left"></i></div>

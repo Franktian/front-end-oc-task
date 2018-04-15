@@ -12,7 +12,7 @@ class Week extends Component {
                 <div className="week-item">We</div>
                 <div className="week-item">Th</div>
                 <div className="week-item">Fr</div>
-                <div className="week-item">Sa</div>
+                <div className="week-item">Sa</div>>
             </div>
         );
     }

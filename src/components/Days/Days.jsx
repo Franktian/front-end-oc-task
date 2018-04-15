@@ -18,7 +18,7 @@ class Days extends Component {
 
         return days.map((day, key) => {
             return (
-                <Day key={key} data={day}/>
+                <Day key={key} data={day} id={key}/>
             );
         });
     }

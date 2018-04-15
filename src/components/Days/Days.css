@@ -5,8 +5,6 @@
 }
 
 .days-item {
-    padding-top: 15px;
-    padding-bottom: 15px;
     width: 14.2857143%;
     color: #cbcbcb;
     border-radius: 3px;
@@ -24,4 +22,22 @@
 .days-item.today {
     background-color: #2cbc9d;
     color: #ffffff;
+}
+
+.days-item .text {
+    height: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.days-item .pop-over {
+    background-color: #2cbc9d;
+}
+
+.popover-inner {
+    background: #555454;
+}
+
+.popover .arrow::after {
+    border-bottom-color: #555454 !important;
 }
