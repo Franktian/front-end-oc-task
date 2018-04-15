@@ -6,17 +6,20 @@ import './App.css';
 import Month from '../Month';
 import Week from '../Week';
 import Days from '../Days';
+import Events from '../Events';
 
 class App extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            current: new Date()
+            current: new Date(),
+            eventRecords:[],
         };
 
         this.setPreviousMonth = this.setPreviousMonth.bind(this);
         this.setNextMonth = this.setNextMonth.bind(this);
+        this.saveEventRecord = this.saveEventRecord.bind(this);
     }
 
     render() {
@@ -30,10 +33,17 @@ class App extends Component {
                 <div className="App-container">
                     <Month setPreviousMonth={this.setPreviousMonth} setNextMonth={this.setNextMonth} currentDate={this.state.current}/>
                     <Week />
-                    <Days currentDate={this.state.current}/>
+                    <Days currentDate={this.state.current} saveEventRecord={this.saveEventRecord}/>
+                    <Events events={this.state.eventRecords} currentDate={this.state.current}/>
                 </div>
             </div>
         );
+    }
+
+    saveEventRecord(record) {
+        this.setState({
+            eventRecords: [...this.state.eventRecords, record]
+        });
     }
 
     setPreviousMonth() {

@@ -33,7 +33,22 @@ class Day extends Component {
     }
 
     saveEvent() {
-        console.log("Saving", this.state);
+        const data = this.props.data;
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"];
+        const day = data.getDate();
+        const month = monthNames[data.getMonth()];
+        const year = data.getFullYear();
+
+        const recordDescription = `${day} ${month} ${year} ${this.state.hour}-${this.state.minute} : ${this.state.eventName}`;
+
+        this.props.saveEventRecord({
+            month: data.getMonth(),
+            year: data.getFullYear(),
+            description: recordDescription
+        });
+
+        this.toggle();
     }
 
     render() {
