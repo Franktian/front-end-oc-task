@@ -17,11 +17,12 @@ class Days extends Component {
 
         return days.map((day, key) => {
             const activeDay = day.isActive ? " active" : "";
+            const isToday = day.isToday ? " today" : "";
 
             return (
                 <div
                     key={key}
-                    className={"days-item" + activeDay}>
+                    className={"days-item" + activeDay + isToday}>
                     { day.getDate() }
                 </div>
             );
@@ -42,7 +43,9 @@ class Days extends Component {
 
         for (let i = 0; i < 42; i++) {
             let copy = new Date(date.getTime());
+            let today = new Date();
             copy.isActive = copy.getMonth() === month;
+            copy.isToday = copy.toDateString() === today.toDateString();
             days.push(copy);
             date.setDate(date.getDate() + 1);
         }

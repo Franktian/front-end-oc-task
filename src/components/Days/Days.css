@@ -9,6 +9,7 @@
     padding-bottom: 15px;
     width: 14.2857143%;
     color: #cbcbcb;
+    border-radius: 3px;
 }
 
 .days-item:hover {
@@ -18,4 +19,9 @@
 
 .days-item.active {
     color: #65656b;
+}
+
+.days-item.today {
+    background-color: #2cbc9d;
+    color: #ffffff;
 }
