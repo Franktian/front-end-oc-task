@@ -6,6 +6,7 @@
 
 .week-item {
     flex: 1;
-    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     color: #65656b;
 }
