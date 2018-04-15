@@ -26,6 +26,11 @@ class Events extends Component {
             return event.month === self.props.currentDate.getMonth() && event.year === this.props.currentDate.getFullYear();
         });
 
+        // Sort by date
+        filtered.sort((e1, e2) => {
+            return e1.dateTime - e2.dateTime;
+        });
+
         return filtered.map((event, key) => {
             return (
                 <div key={key}>{event.description}</div>

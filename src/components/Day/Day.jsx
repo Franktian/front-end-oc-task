@@ -13,8 +13,8 @@ class Day extends Component {
 
         this.state = {
             popoverOpen: false,
-            hour: '',
-            minute: '',
+            hour: 0,
+            minute: 0,
             eventName: ''
         };
     }
@@ -39,12 +39,14 @@ class Day extends Component {
         const day = data.getDate();
         const month = monthNames[data.getMonth()];
         const year = data.getFullYear();
+        const dateTime = new Date(year, data.getMonth(), day, this.state.hour, this.state.minute, 0, 0);
 
         const recordDescription = `${day} ${month} ${year} ${this.state.hour}-${this.state.minute} : ${this.state.eventName}`;
 
         this.props.saveEventRecord({
             month: data.getMonth(),
             year: data.getFullYear(),
+            dateTime: dateTime,
             description: recordDescription
         });
 
