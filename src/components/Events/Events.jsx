@@ -23,7 +23,7 @@ class Events extends Component {
 
         // Show events for active month only
         let filtered = events.filter((event) => {
-            return event.month === self.props.currentDate.getMonth() && event.year === this.props.currentDate.getFullYear();
+            return event.month === self.props.currentDate.getMonth() && event.year === self.props.currentDate.getFullYear();
         });
 
         // Sort by date

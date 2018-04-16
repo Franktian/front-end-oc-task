@@ -10,12 +10,14 @@ class Day extends Component {
         this.toggle = this.toggle.bind(this);
         this.onChange = this.onChange.bind(this);
         this.saveEvent = this.saveEvent.bind(this);
+        this.renderActiveEvents = this.renderActiveEvents.bind(this);
 
         this.state = {
             popoverOpen: false,
             hour: 0,
             minute: 0,
-            eventName: ''
+            eventName: '',
+            events: []
         };
     }
 
@@ -43,11 +45,23 @@ class Day extends Component {
 
         const recordDescription = `${day} ${month} ${year} ${this.state.hour}-${this.state.minute} : ${this.state.eventName}`;
 
+        // Save all events
         this.props.saveEventRecord({
             month: data.getMonth(),
             year: data.getFullYear(),
             dateTime: dateTime,
             description: recordDescription
+        });
+
+        // Save todays events
+        const daysDescription = `${this.state.hour}-${this.state.minute} : ${this.state.eventName}`;
+        const dayEvent = {
+            description: daysDescription,
+            dateTime: dateTime,
+        };
+
+        this.setState({
+            events: [...this.state.events, dayEvent]
         });
 
         this.toggle();
@@ -58,8 +72,9 @@ class Day extends Component {
         const isToday = this.props.data.isToday ? " today" : "";
 
         return (
-            <div className={"days-item" + activeDay + isToday}>
-                <div className="text" id={'Popover-' + this.props.id} onClick={this.toggle}>{this.props.data.getDate()}</div>
+            <div className={"days-item" + activeDay + isToday}  id={'Popover-' + this.props.id} onClick={this.toggle}>
+                <div className="text">{this.props.data.getDate()}</div>
+                { this.renderActiveEvents() }
                 <Popover className="pop-over-container" placement="bottom" isOpen={this.state.popoverOpen} target={'Popover-' + this.props.id} toggle={this.toggle}>
                     <PopoverBody>
                         <div className="input-row">
@@ -84,6 +99,25 @@ class Day extends Component {
                 </Popover>
             </div>
         );
+    }
+
+    renderActiveEvents() {
+        let events = this.state.events;
+        let self = this;
+
+        let filtered = events.filter((event) => {
+            return event.dateTime.getFullYear() === self.props.data.getFullYear()
+                && event.dateTime.getMonth() === self.props.data.getMonth()
+                && event.dateTime.getDate() === self.props.data.getDate()
+        });
+
+        filtered.sort((e1, e2) => {
+            return e1.dateTime - e2.dateTime;
+        });
+
+        return filtered.map((event, key) => {
+            return (<div className="event" key={key}>{event.description}</div>);
+        });
     }
 }
 
